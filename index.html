@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, intiaL-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="./assets/css/style.css"/>
+    <title>Weather Dashboard</title>
+  </head>
+
+  <body>
+    <header class="header-bar">
+      <h1 class="text-center p-3">Weather Dashboard</h1>
+    </header>
+
+    <main class="d-flex">
+      <section id="sideBar" class="m-2 col-3">
+        <div id="search" class="border-bottom">
+          <h2>Search for a City:</h2>
+          <form id="searchBar" class="">
+            <input name="cityname" id="cityname" type="text" class="form-input col p-2 rounded" placeholder="City"/>
+            <button type="submit" class="btn w-100 pb-4">Search</button>
+          </form>
+        </div>
+        
+        <div id="oldSearch">
+          <ul class="list-unstyled text-center">
+            
+          </ul>
+        </div>
+    </section>
+    </main>
+  </body>
+</html>
