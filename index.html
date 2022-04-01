@@ -19,20 +19,30 @@
 
     <main class="d-flex">
       <section id="sideBar" class="m-2 col-3">
-        <div id="search" class="border-bottom">
+        <div id="search" class="border-bottom border-dark ">
           <h2>Search for a City:</h2>
           <form id="searchBar" class="">
             <input name="cityname" id="cityname" type="text" class="form-input col p-2 rounded" placeholder="City"/>
-            <button type="submit" class="btn w-100 pb-4">Search</button>
+            <button type="submit" class="btn w-100 bg-primary mb-4">Search</button>
           </form>
         </div>
         
         <div id="oldSearch">
           <ul class="list-unstyled text-center">
-            
           </ul>
         </div>
-    </section>
+      </section>
+
+      <section id="weather-side" class="m-2 col">
+        <div id="city-weather" class="border p-2 w-100 border-dark border-7">
+        </div>
+
+        <div>
+          <h3>5-Day Forecast:</h3>
+        </div>
+
+        <div id="city-forecast" class=""
+      </section>
     </main>
   </body>
 </html>
