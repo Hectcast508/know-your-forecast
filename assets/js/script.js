@@ -47,8 +47,14 @@ var coordsInsert = function(response,city) {
   })
 }
 
+var changeTimestamp = function(time) {
+  var convDate = new Date(time*1000)
+  var date = convDate.toLocaleDateString().split(',')[0];
+  return date;
+}
+
 var displayWeather = function(data, city) {
-  var date = data.current.dt;
+  var date = changeTimestamp(data.current.dt);
   var temp = data.current.temp;
   var wind = data.current.wind_speed;
   var humidity = data.current.humidity;
@@ -64,7 +70,7 @@ var display5day = function(data,daily) {
   $("#city-forecast").empty()
   for(let i = 1; i < 6; i++) {
     var iconIn = daily[i];
-    var date = data.daily[i].dt;
+    var date = changeTimestamp(data.daily[i].dt);
     var temp = data.daily[i].temp.day;
     var wind = data.daily[i].wind_speed;
     var humidity = data.daily[i].humidity;
