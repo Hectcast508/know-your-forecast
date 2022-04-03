@@ -59,10 +59,10 @@ var displayWeather = function(data, city) {
   var wind = data.current.wind_speed;
   var humidity = data.current.humidity;
   var uv = data.current.uvi;
-
+  
   $("#city-weather")
   .empty()
-  .append("<h2>"+ city +" "+ date +"</h2><p>Temp: "+ temp +"℉</p><p>Wind: "+ wind +" MPH</p><p>Humidity: "+ humidity +"%</p><p>UV Index: <span class='rounded p-1'>"+ uv +"</span></p>");
+  .append("<h2>"+ city +" "+ date +"</h2><img class='rounded-circle' src='http://openweathermap.org/img/wn/" + data.current.weather[0].icon + ".png' alt=''><p class='col-12 p-0'>Temp: "+ temp +"℉</p><p class='col-12 p-0'>Wind: "+ wind +" MPH</p><p class='col-12 p-0'>Humidity: "+ humidity +"%</p><p class='col-12 p-0'>UV Index: <span class='rounded p-1'>"+ uv +"</span></p>");
 }
 
 var display5day = function(data,daily) {
