@@ -20,40 +20,19 @@ var getCityName = function(city) {
   fetch(coordsUrl)
     .then(response => response.json())
     .then(data => coordsInsert(data,city));
-
-  // fetch(coordsUrl)
-  // .then(function(response) {
-  //   if(response.ok) {
-  //     console.log(response);
-  //     response.json().then(function(data) {
-  //       console.log(data);
-  //       coordsInsert(data,city);
-  //     })
-  //   }
-  // })
  
 } 
 
 var coordsInsert = function(response,city) {
   var latCoord = response.coord.lat;
   var lonCoord = response.coord.lon;
-  var weatherUrl = "https://api.openweathermap.org/data/2.5/onecall?lat=" + latCoord + "&lon=" + lonCoord + "&exclude=minutely.hourly,alerts&units=imperial&appid=289b9adb4aa40c0962e1fa10706b278b"
+  var weatherUrl = "https://api.openweathermap.org/data/2.5/onecall?lat=" + latCoord + "&lon=" + lonCoord + "&exclude=minutely.hourly,alerts&units=imperial&appid=289b9adb4aa40c0962e1fa10706b278b";
 
   fetch(weatherUrl)
     .then(response => response.json())
     .then(data => forecastCall(data,city));
 
-  // fetch(weatherUrl)
-  // .then(function(response) {
-  //   if(response.ok) {
-  //     console.log(response);
-  //     response.json().then(function(data) {
-  //       console.log(data);
-  //       displayWeather(data, city);
-  //       display5day(data,data.daily);
-  //     })
-  //   }
-  // })
+  
 }
 
 var forecastCall = function(data,city){
