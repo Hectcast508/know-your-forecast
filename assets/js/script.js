@@ -1,5 +1,6 @@
 var searchFormEl = document.querySelector("#searchBar");
 var cityInputEL = document.querySelector("#cityname");
+var searchedHistoryEl = document.querySelector("#oldSearch");
 
 var citySubmit = function(event) {
   event.preventDefault();
@@ -53,16 +54,38 @@ var changeTimestamp = function(time) {
   return date;
 }
 
-var displayWeather = function(data, city) {
+var colorUV = function(uv) {
+    var color;
+    if (uv < 2) {
+      color = 'green'
+    }
+    else if (uv >= 2 && uv <5) {
+      color = 'yellow'
+    }
+    else if (uv >= 5 && uv <7) {
+      color = 'orange'
+    }
+    else if (uv >= 7 && uv <10) {
+      color = 'red'
+    }
+    else if (uv >= 10) {
+      color = 'violet'
+    }
+    return color  ;
+}
+
+var displayWeather = function(data,city) {
   var date = changeTimestamp(data.current.dt);
   var temp = data.current.temp;
   var wind = data.current.wind_speed;
   var humidity = data.current.humidity;
-  var uv = data.current.uvi;
+  var uv = data.daily[0].uvi;
+
+  
   
   $("#city-weather")
   .empty()
-  .append("<h2>"+ city +" "+ date +"</h2><img class='rounded-circle' src='http://openweathermap.org/img/wn/" + data.current.weather[0].icon + ".png' alt=''><p class='col-12 p-0'>Temp: "+ temp +"℉</p><p class='col-12 p-0'>Wind: "+ wind +" MPH</p><p class='col-12 p-0'>Humidity: "+ humidity +"%</p><p class='col-12 p-0'>UV Index: <span class='rounded p-1'>"+ uv +"</span></p>");
+  .append("<h2>"+ city +" "+ date +"</h2><img class='rounded-circle' src='http://openweathermap.org/img/wn/" + data.current.weather[0].icon + ".png' alt=''><p class='col-12 p-0'>Temp: "+ temp +"℉</p><p class='col-12 p-0'>Wind: "+ wind +" MPH</p><p class='col-12 p-0'>Humidity: "+ humidity +"%</p><p class='col-12 p-0 '>UV Index: <span id='uvColor' class='rounded p-1 "+ colorUV(uv) +"'>"+ uv +"</span></p>");
 }
 
 var display5day = function(data,daily) {
@@ -78,8 +101,6 @@ var display5day = function(data,daily) {
     $("#city-forecast")
     .append("<div class='card bg-dark text-light w-100 mx-1'><div class='p-2'><h3 class='text-center'>"+ date +"</h3><img class='card-img-top w-50 mt-2 mx-auto rounded-circle' src='http://openweathermap.org/img/wn/" + iconIn.weather[0].icon + ".png' alt=''><div class='p-2'><p class='card-text'>Temp: "+ temp +"℉</p><p class='card-text'>Wind: "+ wind +" MPH</p><p class='card-text'>Humidity: "+ humidity +"%</p></div></div>");
   }
-
-
 }
 
 searchFormEl.addEventListener("submit", citySubmit);
