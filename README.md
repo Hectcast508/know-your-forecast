@@ -11,7 +11,7 @@ Easy way to search your weather forecast. Using the search bar enter your city, 
 
 ## Screenshot
 
-![Image of deployed application.]()
+![Image of deployed application.](./assets/images/Desktop%20Screenshot%202022.04.03%20-%2023.49.52.73.png)
 
 ## Link
 
