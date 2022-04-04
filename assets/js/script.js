@@ -15,7 +15,7 @@ var citySubmit = function(event) {
 };
 
 var getCityName = function(city) {
-  var coordsUrl = "http://api.openweathermap.org/data/2.5/weather?q=" + city.replace(/\s/g, "+") +"&appid=289b9adb4aa40c0962e1fa10706b278b";
+  var coordsUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + city.replace(/\s/g, "+") +"&appid=289b9adb4aa40c0962e1fa10706b278b";
 
   fetch(coordsUrl)
     .then(response => response.json())
