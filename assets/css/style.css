@@ -16,4 +16,10 @@
 
 .violet{
   background-color: violet;
+  
 }
+
+.dashBoard {
+  background-image: linear-gradient(to right, rgb(48, 48, 228) , darkblue );
+}
+
